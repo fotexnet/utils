@@ -1,3 +1,20 @@
+# Table of contents
+
+- [Table of contents](#table-of-contents)
+- [Prerequisites](#prerequisites)
+- [Installation](#installation)
+- [Package contents](#package-contents)
+  - [Form utils](#form-utils)
+    - [extractDirty](#extractdirty)
+  - [Response utils](#response-utils)
+    - [onSuccess](#onsuccess)
+    - [onFailure](#onfailure)
+  - [Utils](#utils)
+    - [mergeMap](#mergemap)
+  - [Types](#types)
+    - [IResponse](#iresponse)
+    - [PaginationObject](#paginationobject)
+
 # Prerequisites
 
 1. You must use Node 14 or higher
@@ -13,13 +30,19 @@
 
 # Package contents
 
-## extractDirty
+## Form utils
 
-## onSuccess
+### extractDirty
 
-## onFailure
+## Response utils
 
-## mergeMap
+### onSuccess
+
+### onFailure
+
+## Utils
+
+### mergeMap
 
 This utility merges 2 maps of the same type. The first argument is the **base** where the second argument will be merged into. It will override any `key-value` pair that already exist!
 
@@ -85,3 +108,9 @@ const map = mergeMap(baseMap, submittedMap);
   ]
 */
 ```
+
+## Types
+
+### IResponse
+
+### PaginationObject
