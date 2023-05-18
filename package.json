@@ -27,7 +27,7 @@
     "prepare": "husky install && tsdx build",
     "size": "size-limit",
     "analyze": "size-limit --why",
-    "semantic-release": "semantic-release"
+    "semantic-release": "semantic-release --branches main"
   },
   "module": "dist/utils.esm.js",
   "size-limit": [
