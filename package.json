@@ -1,5 +1,5 @@
 {
-  "version": "0.1.0",
+  "version": "0.0.0-development",
   "name": "utils",
   "author": "Nagy Viktor",
   "license": "MIT",
@@ -9,6 +9,11 @@
     "dist",
     "src"
   ],
+  "homepage": "https://github.com/fotexnet/utils#README.md",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/fotexnet/utils.git"
+  },
   "publishConfig": {},
   "engines": {
     "node": ">=10",
@@ -21,7 +26,8 @@
     "lint": "eslint src",
     "prepare": "husky install && tsdx build",
     "size": "size-limit",
-    "analyze": "size-limit --why"
+    "analyze": "size-limit --why",
+    "semantic-release": "semantic-release --branches main"
   },
   "module": "dist/utils.esm.js",
   "size-limit": [
@@ -69,7 +75,8 @@
     "size-limit": "^8.2.4",
     "tsdx": "^0.14.1",
     "tslib": "^2.5.1",
-    "typescript": "^4.9.5"
+    "typescript": "^4.9.5",
+    "semantic-release": "^21.0.2"
   },
   "config": {
     "commitizen": {
