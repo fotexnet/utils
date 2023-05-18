@@ -1,6 +1,6 @@
 {
   "version": "0.0.0-development",
-  "name": "utils",
+  "name": "@fotexnet/utils",
   "author": "Nagy Viktor",
   "license": "MIT",
   "main": "dist/index.js",
