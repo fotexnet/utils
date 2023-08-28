@@ -1,9 +1,10 @@
-import axios from 'axios';
+import axios, { AxiosRequestConfig } from 'axios';
 import { Channel } from 'pusher-js';
 import { useContext, useState, useCallback, useEffect } from 'react';
 import sha256 from 'sha256';
 import IResponse from '../../interfaces/IResult';
 import { Message } from '../../interfaces/Message';
+import findLastIndex from '../../utils/findLastIndex/findLastIndex';
 import { Context, MessageQueue, MessageQueueBase, MessageQueueMeta } from './types';
 
 function useMessageQueueContext(): MessageQueueBase & MessageQueueMeta {
@@ -35,11 +36,11 @@ function useMessageQueue(userId?: number): MessageQueue {
       context.setHistory(prev => {
         const arr = [...prev];
         const index = arr.findIndex(x => x.id === message.id);
-        const lastIndex = arr.findLastIndex(x => x.read === false);
+        const lastIndex = findLastIndex(arr, x => x.read === false);
 
         if (index !== lastIndex && lastIndex !== -1) {
           const [removedItem] = arr.splice(index, 1);
-          const newLastIndex = arr.findLastIndex(x => x.read === false);
+          const newLastIndex = findLastIndex(arr, x => x.read === false);
           arr.splice(newLastIndex + 1, 0, removedItem);
           arr[newLastIndex + 1].read = true;
         } else if (lastIndex !== -1) {
@@ -71,10 +72,9 @@ function useMessageQueue(userId?: number): MessageQueue {
   }, [history]);
 
   useEffect(() => {
+    const conf = { params: { target: userId } } as AxiosRequestConfig<unknown>;
     axios
-      .get<IResponse<{ notifications: Message[] }>>(context.historyUrl, {
-        params: { target: userId },
-      })
+      .get<IResponse<{ notifications: Message[] }>>(context.historyUrl, conf)
       .then(({ data }) => context.setHistory(data.data.notifications));
   }, []);
 
