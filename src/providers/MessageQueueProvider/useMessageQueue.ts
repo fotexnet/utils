@@ -76,7 +76,7 @@ function useMessageQueue(userId?: number): MessageQueue {
     axios
       .get<IResponse<{ notifications: Message[] }>>(context.historyUrl, conf)
       .then(({ data }) => context.setHistory(data.data.notifications));
-  }, []);
+  }, [userId]);
 
   useEffect(() => {
     if (!userId) setPrivateChannel(null);
