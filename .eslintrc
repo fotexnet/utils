@@ -17,8 +17,14 @@
     "project": "./tsconfig.json",
     "tsconfigRootDir": "./"
   },
-  "extends": ["plugin:import/recommended", "eslint:recommended", "prettier", "plugin:@typescript-eslint/recommended"],
-  "plugins": ["testing-library", "prefer-arrow", "import"],
+  "extends": [
+    "plugin:import/recommended",
+    "eslint:recommended",
+    "prettier",
+    "plugin:@typescript-eslint/recommended",
+    "plugin:react-hooks/recommended"
+  ],
+  "plugins": ["testing-library", "prefer-arrow", "import", "react-hooks"],
   "overrides": [
     {
       "files": ["**/__tests__/**/*.[jt]s?(x)", "**/?(*.)+(spec|test).[jt]s?(x)"],
