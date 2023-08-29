@@ -69,7 +69,7 @@ function useMessageQueue(userId?: number): MessageQueue {
 
   const getUnreadMessages = useCallback(() => {
     return context.history.filter(message => message.read === false);
-  }, [history]);
+  }, [context.history]);
 
   useEffect(() => {
     const conf = { params: { target: userId } } as AxiosRequestConfig<unknown>;
