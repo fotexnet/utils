@@ -1,4 +1,4 @@
-function extractDirty(
+function extractDirtyObject(
   baseObj: Record<string, unknown>,
   submittedObj: Record<string, unknown>
 ): Record<string, unknown> {
@@ -17,6 +17,6 @@ function extractDirty(
   return obj;
 }
 
-export default extractDirty;
+export default extractDirtyObject;
 
 // TODO: optimize for objects and arrays
