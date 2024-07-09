@@ -15,10 +15,6 @@
     "url": "https://github.com/fotexnet/utils.git"
   },
   "publishConfig": {},
-  "engines": {
-    "node": ">=10",
-    "npm": "use Yarn!"
-  },
   "scripts": {
     "start": "tsdx watch",
     "build": "tsdx build",
